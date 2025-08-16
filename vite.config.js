@@ -7,5 +7,5 @@ export default defineConfig({
   plugins: [react(),
     tailwindcss(),
   ],
-  base: "/",
+  base: "wahid-portfolio/", // Adjusted base path for GitHub Pages
 })
