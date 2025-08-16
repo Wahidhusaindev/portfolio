@@ -83,7 +83,7 @@ export default function Home() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6 }}
-              className="w-32 h-32 mx-auto mb-8 rounded-full"
+              className="w-32 h-32 mx-auto mb-8 rounded-full shadow-lg "
               src={img}
               alt="Wahid Husain"
             />
@@ -98,7 +98,7 @@ export default function Home() {
           </motion.h1>
 
           {/* Typing Text */}
-          <motion.p variants={item} className="mb-8 text-2xl h-8">
+          <motion.p variants={item} className="mb-8 text-2xl h-8 text-bold">
             {currentText}
             <span className="border-r-2 border-white animate-pulse"></span>
           </motion.p>
