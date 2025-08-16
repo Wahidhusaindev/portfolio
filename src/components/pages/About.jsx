@@ -89,35 +89,42 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right Side - Skills Badges */}
+          {/* Right Side - Skills Badges with Logos */}
           <motion.div
             initial="hidden"
             whileInView="show"
             transition={{ staggerChildren: 0.15 }}
             viewport={{ once: true }}
-            className="flex flex-wrap gap-3"
+            className="bg-gray-50 rounded-2xl shadow-lg p-8 flex flex-wrap gap-4 justify-center"
           >
             {[
-              "React",
-              "Node.js",
-              "Express",
-              "MongoDB",
-              "Python",
-              "JavaScript",
-              "Tailwind CSS",
-              "Git & GitHub",
-              "REST APIs",
+              { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
+              { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
+              { name: "Express", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
+              { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
+              { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
+              { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
+              { name: "Tailwind CSS", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg" },
+              { name: "Git & GitHub", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
+              { name: "REST APIs", logo: "https://img.icons8.com/ios-filled/50/000000/api-settings.png" },
             ].map((skill, i) => (
-              <motion.span
+              <motion.div
                 key={i}
                 variants={{
                   hidden: { opacity: 0, y: 20 },
                   show: { opacity: 1, y: 0 },
                 }}
-                className="px-4 py-2 rounded-full text-sm font-medium bg-blue-100 text-blue-800 shadow-sm hover:scale-105 transition"
+                className="flex flex-col items-center bg-white rounded-xl px-4 py-3 shadow hover:scale-105 transition w-28"
               >
-                {skill}
-              </motion.span>
+                <img
+                  src={skill.logo}
+                  alt={skill.name + " logo"}
+                  className="h-10 mb-2"
+                  style={{ objectFit: "contain" }}
+                  loading="lazy"
+                />
+                <span className="text-xs font-medium text-gray-700 text-center">{skill.name}</span>
+              </motion.div>
             ))}
           </motion.div>
         </div>
