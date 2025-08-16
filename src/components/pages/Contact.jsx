@@ -1,6 +1,20 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import { sendEmail } from "../../utils/emailjs";
 
 export default function Contact() {
+  const formRef = useRef();
+  const [status, setStatus] = useState("");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setStatus("");
+    try {
+      await sendEmail(formRef);
+      setStatus("Message sent successfully!");
+      formRef.current.reset();
+    } catch (error) {
+      setStatus("Failed to send message. Please try again later.");
+    }
+  };
   return (
     <section className="py-20 bg-white">
       <div className="max-w-4xl mx-auto px-6">
@@ -38,22 +52,25 @@ export default function Contact() {
           </div>
 
           <div>
-            <form className="space-y-6" onSubmit={(e) => { e.preventDefault(); alert("Demo form!"); }}>
+            <form ref={formRef} className="space-y-6" onSubmit={handleSubmit}>
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">Name</label>
-                <input type="text" className="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Your Name" required />
+                <input name="user_name" type="text" className="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Your Name" required />
               </div>
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">Email</label>
-                <input type="email" className="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="your@email.com" required />
+                <input name="user_email" type="email" className="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="your@email.com" required />
               </div>
               <div>
                 <label className="block text-gray-700 font-semibold mb-2">Message</label>
-                <textarea rows="4" className="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Tell me about your project..." required></textarea>
+                <textarea name="message" rows="4" className="w-full px-4 py-3 border border-gray-300 rounded-lg" placeholder="Tell me about your project..." required></textarea>
               </div>
               <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700">
                 Send Message
               </button>
+              {status && (
+                <p className="text-center mt-4 text-sm text-green-600">{status}</p>
+              )}
             </form>
           </div>
         </div>
