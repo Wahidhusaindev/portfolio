@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import About from "./About";
-import Portfolio from "./Portfolio";
+import Portfolio from "./Projects";
 import Contact from "./Contact";
 import img from "../../assets/img.png"; // Adjust the path if needed
 import { motion } from "framer-motion";
@@ -83,7 +83,7 @@ export default function Home() {
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6 }}
-              className="w-32 h-32 mx-auto mb-8 rounded-full shadow-lg "
+              className="w-45 h-50 mx-auto mb-8 rounded-full shadow-lg "
               src={img}
               alt="Wahid Husain"
             />

@@ -1,5 +1,13 @@
-import React from "react";
 import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: {},
+  show: {
+    transition: {
+      staggerChildren: 0.15,
+    },
+  },
+};
 
 export default function About() {
   return (
@@ -14,7 +22,7 @@ export default function About() {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-gray-800 mb-4">About Me</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto ">
             I’m an aspiring full-stack web developer, currently learning at{" "}
             <strong>AlmaBetter</strong>, passionate about building impactful and
             user-friendly digital experiences.
@@ -31,8 +39,8 @@ export default function About() {
             viewport={{ once: true }}
             className="bg-gradient-to-br from-blue-50 to-purple-50 p-8 rounded-2xl shadow-lg"
           >
-            <div className="text-6xl mb-4">🚀</div>
-            <h3 className="text-2xl font-bold text-gray-800 mb-4">My Journey</h3>
+            <div className="text-6xl mb-4 text-center">🚀</div>
+            <h3 className="text-2xl font-bold text-gray-800 mb-4 text-center">My Journey</h3>
             <p className="text-gray-600 mb-6">
               Started as a curious learner, I gradually evolved into a
               full-stack developer. My journey includes mastering frontend
@@ -72,16 +80,16 @@ export default function About() {
                 <span className="text-xs text-gray-500">85%</span>
               </div>
 
-              {/* Python */}
+              {/* JavaScript */}
               <div>
-                <p className="text-sm font-medium text-gray-700">Python</p>
+                <p className="text-sm font-medium text-gray-700">JavaScript</p>
                 <div className="w-full bg-gray-200 rounded-full h-3">
                   <motion.div
                     initial={{ width: 0 }}
                     whileInView={{ width: "70%" }}
                     transition={{ duration: 1 }}
                     viewport={{ once: true }}
-                    className="h-3 bg-purple-600 rounded-full"
+                    className="h-3 bg-yellow-400 rounded-full"
                   />
                 </div>
                 <span className="text-xs text-gray-500">70%</span>
@@ -91,22 +99,67 @@ export default function About() {
 
           {/* Right Side - Skills Badges with Logos */}
           <motion.div
+            variants={containerVariants}
             initial="hidden"
             whileInView="show"
-            transition={{ staggerChildren: 0.15 }}
             viewport={{ once: true }}
             className="bg-gray-50 rounded-2xl shadow-lg p-8 flex flex-wrap gap-4 justify-center"
           >
+            <h3 className="text-2xl font-bold text-gray-800 mb-2">
+              Technical Skills & Tools
+            </h3>
+            <p className="mt-2 text-bold text-gray-600 text-center text-left max-w-md">
+              I work with a wide range of technologies to build full-stack web applications. 
+              My experience spans across personal projects, coursework, and continuous
+              hands-on learning to stay up-to-date with modern development practices.
+            </p>
+
             {[
-              { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-              { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
-              { name: "Express", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" },
-              { name: "MongoDB", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg" },
-              { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
-              { name: "JavaScript", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" },
-              { name: "Tailwind CSS", logo: "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg" },
-              { name: "Git & GitHub", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" },
-              { name: "REST APIs", logo: "https://img.icons8.com/ios-filled/50/000000/api-settings.png" },
+              {
+                name: "React",
+                logo:
+                  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+              },
+              {
+                name: "Node.js",
+                logo:
+                  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
+              },
+              {
+                name: "Express",
+                logo:
+                  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+              },
+              {
+                name: "MongoDB",
+                logo:
+                  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+              },
+              {
+                name: "Python",
+                logo:
+                  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
+              },
+              {
+                name: "JavaScript",
+                logo:
+                  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+              },
+              {
+                name: "Tailwind CSS",
+                logo:
+                  "https://cdn.jsdelivr.net/npm/simple-icons@v11/icons/tailwindcss.svg",
+              },
+              {
+                name: "Git & GitHub",
+                logo:
+                  "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
+              },
+              {
+                name: "REST APIs",
+                logo:
+                  "https://img.icons8.com/ios-filled/50/000000/api-settings.png",
+              },
             ].map((skill, i) => (
               <motion.div
                 key={i}
@@ -118,12 +171,14 @@ export default function About() {
               >
                 <img
                   src={skill.logo}
-                  alt={skill.name + " logo"}
+                  alt={skill.name ? `${skill.name} logo` : "Skill logo"}
                   className="h-10 mb-2"
                   style={{ objectFit: "contain" }}
                   loading="lazy"
                 />
-                <span className="text-xs font-medium text-gray-700 text-center">{skill.name}</span>
+                <span className="text-xs font-medium text-gray-700 text-center">
+                  {skill.name}
+                </span>
               </motion.div>
             ))}
           </motion.div>

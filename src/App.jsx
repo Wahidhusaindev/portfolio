@@ -4,7 +4,7 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./components/pages/Home";
 import About from "./components/pages/About";
-import Portfolio from "./components/pages/Portfolio";
+import Projects from "./components/pages/Projects";
 import Contact from "./components/pages/Contact";
 import "./App.css"; // Assuming you have a CSS file for global styles
 
@@ -16,7 +16,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
-          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/portfolio" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>

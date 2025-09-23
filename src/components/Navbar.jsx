@@ -27,7 +27,7 @@ export default function Navbar() {
             About
           </NavLink>
           <NavLink to="/portfolio" className={linkClass}>
-            Portfolio
+            Projects
           </NavLink>
           <NavLink to="/contact" className={linkClass}>
             Contact
@@ -51,7 +51,7 @@ export default function Navbar() {
           <NavLink to="/about" className={linkClass} onClick={toggleMenu}>
             About
           </NavLink>
-          <NavLink to="/portfolio" className={linkClass} onClick={toggleMenu}>
+          <NavLink to="/Projects" className={linkClass} onClick={toggleMenu}>
             Portfolio
           </NavLink>
           <NavLink to="/contact" className={linkClass} onClick={toggleMenu}>

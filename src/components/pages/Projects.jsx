@@ -48,8 +48,8 @@ export default function Portfolio() {
             My Portfolio
           </h2>
           <p className="text-xl text-gray-600">
-            A showcase of my recent projects and contributions
-          </p>
+           A showcase of my hands-on projects that demonstrate the practical application of full-stack technologies, problem-solving skills, and my ability to deliver functional and user-friendly solutions.
+           </p>
         </motion.div>
 
         {/* Projects Grid */}
