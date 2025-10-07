@@ -21,6 +21,7 @@ Deployed live at 👉 **[wahidhusain.netlify.app](https://wahidhusain.netlify.ap
 ```bash
 git clone https://github.com/Wahidhusaindev/portfolio.git
 cd portfolio
+## Automated Version Badge
 
 2️⃣ Install dependencies
 npm install
@@ -29,17 +30,10 @@ npm install
 npm run dev
 
 
-Then open http://localhost:5173
- in your browser.
-
 4️⃣ Build for production
-npm run build
-
-5️⃣ Preview production build
 npm run preview
 
 ⚙️ ESLint Configuration
-
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

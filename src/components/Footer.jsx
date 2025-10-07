@@ -1,7 +1,9 @@
+
 import React from "react";
 import { FaGithub, FaLinkedinIn } from "react-icons/fa";
 import { FaSquareXTwitter } from "react-icons/fa6";
 import { SiLeetcode } from "react-icons/si";
+import { getAppVersion } from "../utils/version";
 
 export default function Footer() {
   const socials = [
@@ -42,6 +44,13 @@ export default function Footer() {
               {social.icon}
             </a>
           ))}
+        </div>
+
+        {/* Version badge */}
+        <div className="mt-6 flex justify-center">
+          <span className="inline-block bg-gray-700 text-xs px-3 py-1 rounded-full text-gray-300">
+            Version: {getAppVersion()}
+          </span>
         </div>
       </div>
     </footer>
